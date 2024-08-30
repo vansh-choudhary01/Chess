@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const mongoose = require('mongoose');
 const User = require("./Schemas/userSchema");
+const Schema = require("./Schema.js");
+const ExpressError = require("./Schemas/ExpressError.js");
 
 main().catch(err => console.log(err));
 
@@ -15,6 +17,15 @@ app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
+
+const validate = (req, res, next) => {
+    let {error} = Schema.validate(req.body);
+    if(error) {
+        throw new ExpressError(404, error.message);
+    } else {
+        next();
+    }
+}
 app.get("/", (req, res) => {
     res.render("home.ejs");
 })
@@ -34,7 +45,7 @@ app.get("/play/login", (req, res) => {
 app.get("/play/online", async (req, res) => {
     let {email, password} = req.query;
     let result = await User.findOne({email, password});
-    console.log(result);
+    // console.log(result);
     if(result == null) {
         res.redirect("/play/member");
     } else {
@@ -42,14 +53,19 @@ app.get("/play/online", async (req, res) => {
     }
 })
 
-app.post("/play/online", async (req, res) => {
+app.post("/play/online", validate, async (req, res) => {
     let {username, email, password} = req.body;
     let user = new User({
         username, email, password
     });
     let result = await user.save();
-    console.log(result);
+    // console.log(result);
     res.redirect("/play/online");
+})
+
+app.use((err, req, res, next) => {
+    let {status, message} = err;
+    res.status(status).send(message);
 })
 
 app.listen(8080, () => {
