@@ -44,8 +44,22 @@ button {
     border-radius : 10px;
     font-size : 3vw;
     margin : 6rem;
+    color : white;
 }
 
-span {
-    opacity : .7;
+.info span {
+    color : rgba(255,255,255,0.7);
+    /* font-size : 1vw; */
+}
+
+b {
+    color : rgba(255,255,255,1);
+}
+
+button *{
+    display : block;
+}
+
+button span {
+    font-size : 1.3vw;
 }

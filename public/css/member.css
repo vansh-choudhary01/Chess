@@ -1,0 +1,27 @@
+* {
+    margin : 0;
+    padding : 0;
+}
+
+body {
+    text-align: center;
+    background-color: #262522;
+}
+
+h1 {
+    font-size : 4vw;
+    color : white;
+    margin-top : 3vw;
+    margin-bottom : 7vw;
+}
+
+button {
+    width : 32vw;
+    height : 7vw;
+    border : none;
+    background-color: #81B64C;
+    border-radius : 10px;
+    font-size : 3vw;
+    margin : 2rem;
+    color : white;
+}

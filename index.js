@@ -61,7 +61,7 @@ app.post("/play/online", validate, async (req, res) => {
     });
     let result = await user.save();
     // console.log(result);
-    res.redirect("/play/online");
+    res.render("online.ejs");
 })
 
 app.use((err, req, res, next) => {

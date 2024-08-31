@@ -1,0 +1,106 @@
+* {
+    padding : 0; 
+    margin : 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #302E2B;
+    background-image: url(../img/download.png);
+    background-size : cover;
+    background-position :top;
+    display: flex;
+    flex-direction : column;
+    align-items : center;
+    color : white;
+}
+
+img {
+    width : 200px;
+    position : absolute;
+    top : -50px;
+}
+
+.main {
+    background-color: #262522;
+    width : 500px;
+    height : 85vh;
+    position : fixed;
+    bottom : 0;
+    border-radius : 10px;
+}
+
+.main form {
+    display: flex;
+    flex-direction: column;
+    line-height: 5vh;
+    color : white;
+    align-items: center;
+    padding : 30px;
+}
+
+form input {
+    width : 90%;
+    height : 40px;
+    background-color: #302E2B;
+    color : white;
+    border-radius : 7px;
+    margin-top : 20px;
+    padding : 5px 10px;
+    border : none;
+}
+
+form div,label {
+    display : flex;
+    width : 90%;
+    * {
+        width : 50%;
+    }
+}
+
+div label {
+    display: flex;
+    align-items: center;
+    color : white;
+    justify-content: flex-start;
+
+    input {
+        position: relative;
+        top : -10px;
+        width: fit-content;
+        height : 20px;
+        margin-right : 10px;
+    }
+}
+
+div label span {
+    width : fit-content;
+}
+
+div a {
+    text-align : right;
+    margin : 10px;
+    color : white;
+}
+
+form button {
+    width : 32vw;
+    height : 7vw;
+    border : none;
+    background-color: #81B64C;
+    border-radius : 10px;
+    font-size : 3vw;
+    color : white;
+    margin-top : 8vw;
+}
+
+h1 {
+    text-align: center;
+    margin-top : 20px;
+}
+
+h3 {
+    opacity: 0.7;
+    text-align: center;
+    margin : 10px 0 -20px 0
+}
